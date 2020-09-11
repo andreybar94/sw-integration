@@ -1,1 +1,1 @@
-"# SW integration" 
+SW integration
