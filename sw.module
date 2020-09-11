@@ -1,0 +1,21 @@
+<?php
+//test deploy
+/**
+ * Cron job for Filled Queue.
+ */
+function swapi_queue_cronjob() {
+
+  $swapi = \Drupal::service('sw.swapi');
+  /** @var QueueFactory $queuFactory */
+  $queueFactory = \Drupal::service('queue');
+  /** @var QueueInterface $queue */
+  $queue = $queueFactory->get('node_queue_worker');
+
+  $exemplars = $swapi->getAllExemplars();
+  foreach ($exemplars as $exemplarsEntities) {
+    foreach ($exemplarsEntities as $exemplar) {
+      $queue->createItem($exemplar);
+    }
+  }
+
+}

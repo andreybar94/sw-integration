@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - sw
+title: 'Star Wars API Queue Filler'
+id: swapi_cron_job
+module: sw
+callback: swapi_queue_cronjob

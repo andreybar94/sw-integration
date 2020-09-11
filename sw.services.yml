@@ -1,0 +1,4 @@
+services:
+  sw.swapi:
+    class: Drupal\sw\Services\StarWarsAPI
+    arguments: ['@http_client']
